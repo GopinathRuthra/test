@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Employee and Asset Database Details</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"  />
+    <!-- <script src="{{url_for('static', filename='index.js')}}"></script> -->
+    <script src="../static/index.js"></script>
+  </head>
+  <body>
+    <center><h1>Employee and Asset Database Details</h1></center>
+    <form class="signup-form" action="/display" method="POST">
+      <div class="form-body">
+        <center><h2>Employee Details</h2></center>
+        <div class="horizontal-group">
+          <div class="form-group left">
+            <label for="Global ID" class="label-title">Global ID :  *</label>
+            <input type="number" id="GID" name="GID" class="form-input" placeholder="Enter your Global ID" required="required" />
+          </div>
+          <div class="form-group right">
+            <label for="Name" class="label-title">Name : *</label>
+            <input type="text" id="Emp_Name" name="Emp_Name" class="form-input" placeholder="Enter you Name" required="required" readonly/>
+          </div>
+        </div>
+
+        <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="Band" class="label-title">Band : *</label>
+              <input type="text" id="Band" name="Band" class="form-input" placeholder="Enter a Band" required="required" readonly/>
+            </div>
+            <div class="form-group right">
+              <label for="Cost center Name" class="label-title">Cost center Name : *</label>
+              <input type="text" id="CCName" name="CCName" class="form-input" placeholder="Enter a Cost center Name" required="required" readonly/>
+            </div>
+          </div>
+        <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="Cost center ID" class="label-title">Cost center ID : *</label>
+              <input type="text" id="CCID" name="CCID" class="form-input" placeholder="Enter a Cost center ID" required="required" readonly/>
+            </div>
+            <div class="form-group right">
+                <label for="Date Of Joining" class="label-title">Date Of Joining :</label>
+                <input type="date" id="DOJ" name="DOJ" class="form-input" required="required" />
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div class="form-group left">
+                <label for="email" class="label-title">Enter your Work Email: *</label>
+                <input type="email" id="W_Email" name="W_Email" class="form-input" required="required" placeholder="Enter your Work Email" readonly/>
+            </div>
+            <div class="form-group right">
+              <label for="Manager" class="label-title">Manager : *</label>
+              <input type="text" id="Manager" name="Manager" class="form-input" placeholder="Enter your Manager Name" required="required" readonly/>
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div class="form-group left">
+                <label for="Band change date" class="label-title">Band change date :</label>
+                <input type="date" id="Band_Change_date" name="Band_Change_Date" class="form-input" required="required" />
+            </div>
+            <div class="form-group right">
+              <label for="Lead" class="label-title">Lead : *</label>
+              <input type="text" id="Lead" name="Lead" class="form-input" placeholder="Enter your Lead Name" required="required" />
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="AGM / VP" class="label-title">AGM / VP Name : *</label>
+              <input type="text" id="AGM_VP" name="AGM_VP" class="form-input" placeholder="Enter your AGM / VP Name " required="required" />
+            </div>
+            <div class="form-group right" >
+              <label class="label-title">Job Role : *</label>
+              <select class="form-input" id="Job_Role" name="Job_Role" class="form-input" onchange="showMe(this)">
+                <option value="Trainee">Trainee </option>
+                <option value="Production">Production </option>
+                <option value="Support">Support </option> 
+              </select>
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div id="test_div" class="form-group left" style="display: block">
+              <label for="Trainer's Name " class="label-title">Trainers Name : </label>
+              <input type="text" id="T_Name" name="T_Name" class="form-input" placeholder="Only for Trainee's"/>
+            </div>
+            <div class="form-group right" >
+              <label for="SPOC Name " class="label-title">SPOC Name : *</label>
+              <input type="text" id="SPOC" name="SPOC" class="form-input" placeholder="Enter your SPOC's Name"/>
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="Core Process" class="label-title">Core Process : *</label>
+              <input type="text" id="Core_Processe" name="Core_Process" class="form-input" placeholder="Enter your Core Process" required="required" />
+            </div>
+            <div class="form-group right" >
+              <label for="Sub Process" class="label-title">Sub Process : *</label>
+              <input type="text" id="Sub Processe" name="Sub_Process" class="form-input" placeholder="Enter your Sub Process" required="required" />
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="Higher_Qualification" class="label-title">Higher Qualification : *</label>
+              <input type="text" id="Higher_Qualification" name="Higher_Qualification" class="form-input" placeholder="Enter your Higher Qualification" required="required" />
+            </div>
+            <div class="form-group right" >
+               <label for="Gender" class="label-title">Gender : </label>
+                <select class="form-input" id="GENDER" name="GENDER">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Not Preferred to say">Not Preferred to say</option>
+                </select>
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="Date Of Birth" class="label-title">Date Of Birth :</label>
+              <input type="date" id="DOB" name="DOB" class="form-input" required="required"  min="1960-01-01" max="2020-12-31" />
+            </div>
+            <div class="form-group right">
+              <label class="label-title">Work Location : *</label>
+                  <select class="form-input" id="Work_Location" name="Work_Location" class="form-input">
+                    <option value="WFH-Base Location">WFH-Base Location </option>
+                    <option value="WFH-Non Base Location">WFH-Non Base Location </option>
+                    <option value="RTO">RTO</option>
+                  </select>
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div class="form-group left" >
+              <label class="label-title">Previous Team/Business : *</label>
+              <select class="form-input" id="P_Team" name="P_Team" onchange="showAt(this)">
+                <option value="Others">Others Business</option>
+                <option value="Fresher">Fresher</option>
+                <option value="EPS">EPS</option>
+                <option value="HSD">HSD</option>
+                <option value="Safe Escrow">Safe Escrow</option>
+                <option value="Agency Third Party">Agency Third Party</option>
+              </select>
+            </div>
+            <div id="pt_div" class="form-group right" style="display: block">
+              <label for="Others in Previous Team/Company" class="label-title">Others Previous Team/Business : </label>
+             <input type="text" id="P_O_Team" name="P_O_Team" class="form-input" placeholder="Only for Other Business Unit's" />
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div class="form-group left"> 
+              <label class="label-title">Vaccine Action Plan : </label>
+                  <select class="form-input" id="Vaccine_Action_Plan" name="Vaccine_Action_Plan">
+                    <option value="FAI Offered">FAI Offered</option>
+                    <option value="Self">Self </option>
+                  </select>
+            </div>
+            <div class="form-group right" >
+              <label class="label-title">Vaccinated Status : </label>
+                  <select class="form-input" id="Vaccinated_Status" name="Vaccinated_Status" onchange="showCert(this)">
+                    <option value="Doseage 1">Doseage 1 </option>
+                    <option value="Doseage 2">Doseage 2 </option>
+                    <option value="Not Vaccinated">Not Vaccinated</option>
+                  </select>
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div id="cert_div" class="form-group left"> 
+              <label class="label-title">Vaccination Certificate Uploaded in Workday : </label>
+                  <select class="form-input" id="Vaccination_Certificate_Uploaded" name="Vaccination_Certificate_Uploaded">
+                    <option value="N/A">None</option>
+                    <option value="Yes">Yes </option>
+                    <option value="No">No </option>
+                  </select>
+            </div>
+            <div class="form-group right" >        
+              <label class="label-title">Accomodation : </label>
+                  <select class="form-input" id="Accomodation" name="Accomodation">
+                    <option value="Stay with Family">Family </option>
+                    <option value="PG">PG </option>
+                    <option value="Rented House">Rented House</option>
+                  </select>
+            </div>
+          </div>
+          <div class="horizontal-group">
+            <div class="form-group left">
+              <label for="email" class="label-title">Enter your Personal Email:</label>
+              <input type="email" id="Personal_Email" name="Personal_Email" class="form-input" placeholder="Enter your Personal Email" required="required" />
+            </div>
+            <div class="form-group right" >        
+              <label class="label-title">Insurance Type : *</label>
+                  <select class="form-input" id="Insurance" name="Insurance">
+                    <option value="Medical Insurance">Medical Insurance </option>
+                    <option value="ESIC">ESIC </option>
+                  </select>
+            </div>
+          </div>
+        <div class="horizontal-group">
+          <div class="form-group left">
+              <label for="Emergency Contact Name" class="label-title">Emergency Contact Name : *</label>
+              <input type="text" id="ECName" name="ECName" class="form-input" placeholder="Enter you Emergency Contact Name" required="required" />
+          </div>
+          <div class="form-group right" >  
+              <label for="Emergency Contact Number" class="label-title">Emergency Contact Number : *</label>
+              <input type="number" id="ECNumber" name="ECNumber" class="form-input" placeholder="Enter you Emergency Contact Number" required="required" />
+          </div>
+        </div>
+        <div class="horizontal-group">
+          <div class="form-group left">
+            <label for="Personal Contact Name" class="label-title">Personal Contact Number : *</label>
+            <input type="number" id="Mob" name="Mob" class="form-input" placeholder="Enter you Personal Contact Number" required="required" />
+          </div>
+          <div class="form-group right" >
+            <label for="Marital" class="label-title">Marital Status : </label>
+            <select class="form-input" id="Marital" name="Marital">
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+            </select>
+          </div>
+        </div>
+        <div class="horizontal-group">
+          <div id="tran-div" class="form-group left" style="display: block">
+            <label class="label-title">Mode of Transport : </label>
+            <select class="form-input" id="Transport" name="Transport" onchange="showToss(this)">
+              <option value="Cab">Cab</option>
+              <option value="Public Transport">Public Transport</option>
+              <option value="Own Vehicle">Own Vehicle </option>
+            </select>
+          </div>
+          <div id="tran_div" class="form-group right" style="display: block">
+            <label for="Pickup Point" class="label-title">Pickup Point : *</label>
+            <input type="text" id="Pickup" name="Pickup" class="form-input" placeholder="Only for Cab and Public Transport" required="required" />
+          </div>
+        </div>
+        <div class="horizontal-group">
+          <div class="form-group left" >
+            <label for="Distance from Office" class="label-title">Distance from Office : *</label>
+            <input type="number" id="Distance" name="Distance" class="form-input" placeholder="Distance from Office in KMS" required="required" />
+          </div>
+          <div class="form-group right" >
+            <label for="Address" class="label-add">Residential Address:</label>
+            <textarea id="Address" name="Address" rows="4" cols="50" class="form-add" placeholder="Enter your Residential Address"></textarea>
+          </div>
+        </div>      
+        <div class="horizontal-group">
+          <div class="form-group left">
+            <label class="label-title">Native State : *</label>
+            <select class="form-input" id="Native_State" name="Native_State">
+              <option value="N/A">Select state</option>
+              <option value="AN">Andaman and Nicobar Islands</option>
+              <option value="AP">Andhra Pradesh</option>
+              <option value="AR">Arunachal Pradesh</option>
+              <option value="AS">Assam</option>
+              <option value="BR">Bihar</option>
+              <option value="CH">Chandigarh</option>
+              <option value="CT">Chhattisgarh</option>
+              <option value="DN">Dadra and Nagar Haveli</option>
+              <option value="DD">Daman and Diu</option>
+              <option value="DL">Delhi</option>
+              <option value="GA">Goa</option>
+              <option value="GJ">Gujarat</option>
+              <option value="HR">Haryana</option>
+              <option value="HP">Himachal Pradesh</option>
+              <option value="JK">Jammu and Kashmir</option>
+              <option value="JH">Jharkhand</option>
+              <option value="KA">Karnataka</option>
+              <option value="KL">Kerala</option>
+              <option value="LD">Lakshadweep</option>
+              <option value="MP">Madhya Pradesh</option>
+              <option value="MH">Maharashtra</option>
+              <option value="MN">Manipur</option>
+              <option value="ML">Meghalaya</option>
+              <option value="MZ">Mizoram</option>
+              <option value="NL">Nagaland</option>
+              <option value="OR">Odisha</option>
+              <option value="PY">Puducherry</option>
+              <option value="PB">Punjab</option>
+              <option value="RJ">Rajasthan</option>
+              <option value="SK">Sikkim</option>
+              <option value="TN">Tamil Nadu</option>
+              <option value="TG">Telangana</option>
+              <option value="TR">Tripura</option>
+              <option value="UP">Uttar Pradesh</option>
+              <option value="UT">Uttarakhand</option>
+              <option value="WB">West Bengal</option>
+            </select>
+          </div>
+          <div class="form-group left">
+              <label for="Native - District" class="label-title">Native - District : *</label>
+              <select id="Native_District" name ="Native_District" class="form-input" required></select>
+          </div>
+        </div>
+        <div class="horizontal-group">
+          <div class="form-group right">
+            <label for="City - Pin" class="label-title">City - Pin : *</label>
+            <input type="text" id="City_Pin" name="City_Pin" class="form-input" placeholder="Enter you City & Pin" required="required" />
+          </div>
+        </div>
+          
+
+        <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br> <br></br>
+        <div class="form-group right"><br></br>    
+          <center><h2> Asset Details</h2></center>
+        </div>            <br></br> 
+
+      <div class="horizontal-group">
+        <div class="form-group left" >
+          <label class="label-title">Type of Asset : *</label>
+          <select class="form-input" id="Type_of_Asset" name="Type_of_Asset" onchange="showUs(this)">
+            <option value="N/A">Select Asset Type</option>
+            <option value="Company Desktop">Company Desktop </option>
+            <option value="Company Laptop">Company Laptop </option>
+            <option value="Rental Desktop">Rental Desktop </option>
+            <option value="Rental Laptop">Rental Laptop </option>
+            <option value=" Personal Desktop">Personal Desktop </option>
+            <option value="Personal Laptop">Personal Laptop </option>
+            <option value="No Asset Allocated">No Asset Allocated </option>
+          </select>
+        </div>
+        <div id=CPU_Laptop_div class="form-group right" style="display: block">
+          <label for="CPU/ Laptop (Serial No.)" class="label-title">CPU/ Laptop (Serial No.) : </label>
+          <input type="text" id="CPU_Laptop" name="CPU_Laptop" class="form-input" placeholder="Enter your CPU/ Laptop (Serial No.)" />
+        </div>
+      </div>
+
+      <div class="horizontal-group">
+        <div id=Docking_Station_dev class="form-group left" style="display: block">
+          <label for="Docking Station (Serial No.)" class="label-title">Docking Station (Serial No.) : </label>
+          <input type="text" id="Docking_Station" name="Docking_Station" class="form-input" placeholder="Enter your Docking Station (Serial No.)"  />
+        </div>
+        <div id=Monitor_1_div class="form-group right" style="display: block">
+          <label for="Monitor 1 (Serial No.)" class="label-title">Monitor 1 (Serial No.) : </label>
+          <input type="text" id="Monitor_1" name="Monitor_1" class="form-input" placeholder="Enter your Monitor 1 (Serial No.)"  />
+        </div>
+      </div>
+
+      <div class="horizontal-group">
+        <div id=Monitor_2_div class="form-group left" style="display: block">
+          <label for="Monitor 2 (Serial No.)" class="label-title">Monitor 2 (Serial No.) : </label>
+          <input type="text" id="Monitor_2" name="Monitor_2" class="form-input" placeholder="Enter your Monitor 2 (Serial No.)"  />
+        </div>
+        <div id=Desk_No_div class="form-group right" style="display: block">
+          <label for="Desk#" class="label-title">Desk Number : </label>
+          <input type="text" id="Desk_No" name="Desk_No" class="form-input" placeholder="Enter your Desk#" />
+        </div>
+      </div>
+
+      <div class="horizontal-group">
+        <div id=Dual_Moniter_SetUp_div class="form-group left" style="display: block">
+          <label class="label-title">Dual Moniter SetUp : </label>
+          <select class="form-input" id="Dual_Moniter_SetUp" name="Dual_Moniter_SetUp">
+            <option value="Not Applicable">None</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div id=Internet_availability_div class="form-group right" style="display: block" >
+          <label class="label-title">Internet availability : </label>
+          <select class="form-input" id="Internet_availability" name="Internet_availability">
+            <option value="Not Applicable">None</option>
+            <option value="Dongle">Dongle </option>
+            <option value="Personal Dongle"> Personal Dongle </option>
+            <option value="Broadband">Broadband </option>
+            <option value=" Mobile HotSpot"> Mobile HotSpot </option>
+          </select>
+        </div>
+        </div>
+
+      <div class="horizontal-group">
+        <div id=Head_Phone_availability_div class="form-group left" style="display: block">
+          <label class="label-title">Head Phone availability : </label>
+          <select class="form-input" id="Head_Phone_availability" name="Head_Phone_availability">
+            <option value="Not Applicable">None</option>
+            <option value="Company Provided">Company Provided </option>
+            <option value="Personal Head Phone">Personal Head Phone </option>
+          </select>
+        </div>
+        <div id=Additional_Key_Board_div class="form-group right" style="display: block">
+          <label class="label-title">Additional Key Board  : </label>
+          <select class="form-input" id="Additional_Key_Board" name="Additional_Key_Board">
+            <option value="Not Applicable">None</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="horizontal-group">
+        <div class="form-group left" id=Mouse_div style="display: block">
+          <label  class="label-title">Mouse  : </label>
+          <select class="form-input" id="Mouse" name="Mouse">
+            <option value="Not Applicable">None</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+        <div id=UPS_div class="form-group right" style="display: block">
+          <label class="label-title">UPS for the backup in case of power outage : </label>
+          <select class="form-input" id="UPS" name="UPS">
+            <option value="Not Applicable">None</option>
+            <option value="Personal UPS">Personal UPS</option>
+            <option value="Company Provided">Company Provided</option>
+            <option value="No UPS">No UPS</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="horizontal-group">
+        <div id=Proper_Table_availability_div class="form-group left" style="display: block">
+            <label class="label-title">Proper Table availability  : </label>
+            <select class="form-input" id="Proper_Table_availability" name="Proper_Table_availability">
+              <option value="Not Applicable">None</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+        </div>
+        <div id=Proper_Chair_availability_div class="form-group right" style="display: block">
+          <label class="label-title">Proper Chair availability : </label>
+          <select class="form-input" id="Proper_Chair_availability " name="Proper_Chair_availability">
+            <option value="Not Applicable">None</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="horizontal-group">
+        <div id=Spike_Buster_div class="form-group left" style="display: block">
+            <label class="label-title">Spike Buster : </label>
+            <select class="form-input" id="Spike_Buster" name="Spike_Buster">
+              <option value="Not Applicable">None</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+        </div>
+      </div>
+<div class="form-footer">
+  <span>* Required</span>
+    <button type="submit" class="btn">Update</button>
+    <input type="reset" class="btn" value="Reset">
+</div>
+</form>
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('#GID').on('focusout', function(e) {
+            
+            e.preventDefault()
+            $.getJSON('/test/'+$('#GID').val(),
+                function(text) {
+                  $('#Emp_Name').val(text[0][2]);
+                  $('#Band').val(text[0][3]);
+                  $('#CCName').val(text[0][4]);
+                  $('#CCID').val(text[0][5]);
+                  $('#DOJ').val(text[0][6]);
+                  $('#W_Email').val(text[0][7]);
+                  $('#Manager').val(text[0][8]);
+                  $('#Band_Change_Date').val(text[0][9]);
+                  console.log('GET response text:');
+        console.log(text);
+        console.log(JSON.stringify(text))
+        console.log('')
+        console.log(GID.value)
+            });
+            return false;
+          });
+        });
+</script>
+
+  <script>
+
+function showMe(e) {
+      var strdisplay = e.options[e.selectedIndex].value;
+       var e = document.getElementById("test_div");
+      if(strdisplay == "Trainee") {
+        e.style.display = "block";
+        document.getElementById("T_Name").disabled = false;
+      } else {
+        e.style.display = "block";
+        document.getElementById("T_Name").disabled = true;
+      }
+    }
+
+    function showAt(d) {
+      var strdisplay = d.options[d.selectedIndex].value;
+       var d = document.getElementById("pt_div");
+      if(strdisplay == "Others") {
+        d.style.display = "block";
+        document.getElementById("P_O_Team").disabled = false;
+      } else {
+        d.style.display = "block";
+        document.getElementById("P_O_Team").disabled = true;
+      }
+    }
+
+    function showToss(c) {
+      var strdisplay = c.options[c.selectedIndex].value;
+       var c = document.getElementById("tran_div");
+      if(strdisplay == "Cab") {
+        c.style.display = "block";
+        document.getElementById("Pickup").disabled = false;
+      } else if (strdisplay == "Public Transport") {
+        c.style.display = "block";
+        document.getElementById("Pickup").disabled = false;
+      }  else {
+        c.style.display = "block";
+        document.getElementById("Pickup").disabled = true;
+      }
+    }
+
+
+      function showCert(b) {
+      var strdisplay = b.options[b.selectedIndex].value;
+       var b = document.getElementById("cert_div");
+      if(strdisplay == "Not Vaccinated") {
+        b.style.display = "block";
+        document.getElementById("Vaccination_Certificate_Uploaded").disabled = true;
+      } else {
+        b.style.display = "block";
+        document.getElementById("Vaccination_Certificate_Uploaded").disabled = false;
+      }
+    }
+
+
+    function showUs(ea) {
+      var strdisplay = ea.options[ea.selectedIndex].value;
+       var Mouse_div = document.getElementById("Mouse_div");
+       var Additional_Key_Board_div = document.getElementById("Additional_Key_Board_div");
+      if(strdisplay == "No Asset Allocated") {
+        ea.style.display = "block";
+        CPU_Laptop_div.style.display = "none";
+        Docking_Station_dev.style.display = "none";
+        Monitor_1_div.style.display = "none";
+        Monitor_2_div.style.display = "none";
+        Desk_No_div.style.display = "none";
+        Dual_Moniter_SetUp_div.style.display = "none";
+        Internet_availability_div.style.display = "none";
+        Head_Phone_availability_div.style.display = "none";
+        Additional_Key_Board_div.style.display = "none";
+        Mouse_div.style.display = "none";
+        UPS_div.style.display = "none";
+        Proper_Table_availability_div.style.display = "none";
+        Proper_Chair_availability_div.style.display = "none";
+        Spike_Buster_div.style.display = "none";
+      } else if (strdisplay == "Company Desktop" || strdisplay == " Personal Desktop" || strdisplay == "Rental Desktop" ){
+        CPU_Laptop_div.style.display = "block";
+        Docking_Station_dev.style.display = "block";
+        Monitor_1_div.style.display = "block";
+        Monitor_2_div.style.display = "block";
+        Desk_No_div.style.display = "block";
+        Dual_Moniter_SetUp_div.style.display = "block";
+        Internet_availability_div.style.display = "block";
+        Head_Phone_availability_div.style.display = "block";
+        Additional_Key_Board_div.style.display = "none";
+        Mouse_div.style.display = "none";
+        UPS_div.style.display = "block";
+        Proper_Table_availability_div.style.display = "block";
+        Proper_Chair_availability_div.style.display = "block";
+        Spike_Buster_div.style.display = "block";
+        document.getElementById("Type_of_Asset").removeAttribute("required");
+      }else{
+        Mouse_div.style.display = "block";
+        Additional_Key_Board_div.style.display = "block";
+      }
+    }
+
+    var state_arr = new Array("Andaman & Nicobar", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu & Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Pondicherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttar Pradesh", "Uttaranchal", "West Bengal");
+
+var s_a = new Array();
+s_a[0]="";
+s_a[1]=" Nicobar | North and Middle Andaman  | South Andaman ";
+s_a[2]=" Anantapur | Chittoor | East Godavari | Guntur | Krishna | Kurnool | Prakasam | Sri Potti Sriramulu (Nellore) | Srikakulam | Visakhapatnam | Vizianagaram | West Godavari | YSR";
+s_a[3]=" Anjaw | Changlang | East Kameng | Pasighat | Lohit | Lower Subansiri | Papum Pare | Tawang Town | Tirap | Lower Dibang Valley | Upper Siang | Upper Subansiri | West Kameng | West Siang | Upper Dibang Valley | Kurung Kumey";
+s_a[4]=" Baksa | Barpeta | Bongaigaon | Cachar | Chirang | Darrang | Dhemaji | Dhubri | Dibrugarh | Dima Hasao | Goalpara | Golaghat | Hailakandi | Jorhat | Kamrup | Kamrup Metropolitan | Karbi Anglong | Karimganj | Kokrajhar | Lakhimpur | Morigaon | Nagaon | Nalbari | Sivasagar | Sonitpur | Tinsukia | Udalguri | Biswanath | Charaideo | Hojai | Majuli | South Salamara-Mankachar | West Karbi Anglong";
+s_a[5]=" Araria | Arwal | Aurangabad | Banka | Begusarai | Bhagalpur | Bhojpur | Buxar | Darbhanga | Gaya | Gopalganj | Jamui | Jehanabad | Kaimur | Katihar | Khagaria | Kishanganj | Lakhisarai | Madhepura | Madhubani | Munger | Muzaffarpur | Nalanda | Nawada | Pashchim Champaran | Patna | Purbi Champaran | Purnia | Rohtas | Saharsa | Samastipur | Saran | Sheikhpura | Sheohar | Sitamarhi | Siwan | Supaul | Vaishali";
+s_a[6]=" Chandigarh | Mani Marja";
+s_a[7]=" Balod | Baloda Bazar | Balrampur | Bastar | Bemetara | Bijapur | Bilaspur | Dantewada | Dhamtari | Durg | Gariaband | Janjgir Champa | Jashpur | Kabirdham | Kanker | Kondagaon | Korba | Korea | Mahasamund | Mungeli | Narayanpur | Raigarh | Raipur | Rajnandgaon | Sukma | Surajpur | Surguja";
+s_a[8]=" Amal | Amli | Bedpa | Chikhli | Dadra & Nagar Haveli | Dahikhed | Dolara | Galonda | Kanadi | Karchond | Khadoli | Kharadpada | Kherabari | Kherdi | Kothar | Luari | Mashat | Rakholi | Rudana | Saili | Sili | Silvassa | Sindavni | Udva | Umbarkoi | Vansda | Vasona | Velugam ";
+s_a[9]=" Brancavare | Dagasi | Daman | Diu | Magarvara | Nagwa | Pariali | Passo Covo ";
+s_a[10]=" Central Delhi | East Delhi | Shahadara | New Delhi | North Delhi | North East Delhi | North West Delhi | South Delhi | South West Delhi | South East Delhi | West Delhi ";
+s_a[11]="	North Goa | South Goa ";
+s_a[12]=" Ahmedabad | Amreli | Anand | Aravali | Banaskantha | Bharuch | Bhavnagar | Botad | Chhota Udaipur | Devbhoomi Dwarka | Dohad | Gandhinagar	Gandhinagar | Gir Somnath | Jamnagar | Junagadh | Kachchh | Kheda | Mahisagar | Mehsana | Morbi | Narmada | Navsari | PanchMahal | Patan | Porbandar | Rajkot | Sabarkantha | Surat | Surendranagar | Tapi | The Dangs | Vadodara | Valsad ";
+s_a[13]=" Ambala | Bhiwani | Faridabad | Fatehabad | Gurgaon | Hisar | Jhajjar | Jind | Kaithal | Karnal | Kurukshetra | Mahendragarh | Mewat | Palwal | Panchkula | Panipat | Rewari | Rohtak | Sirsa | Sonipat | Yamunanagar | Charkhi Dadri ";
+s_a[14]="	Bilaspur | Chamba | Hamirpur | Kangra | Kinnaur | Kullu | Lahul and Spiti | Mandi | Shimla | Sirmaur | Solan | Una";
+s_a[15]="	Anantnag | Badgam | Bandipora | Baramula | Doda | Ganderbal | Jammu | Kargil | Kathua | Kishtwar | Kulgam | Kupwara | Leh | Pulwama | Punch | Rajouri | Ramban | Reasi | Samba | Shupiyan | Srinagar | Udhampur";
+s_a[16]="	Bokaro | Chatra | Deoghar | Dhanbad | Dumka | East Singhbhum | Garhwa | Giridih | Godda | Gumla | Hazaribagh | Jamtara | Khunti | Kodarma | Latehar | Lohardaga | Pakur | Palamu | Ramgarh | Ranchi | Sahibganj | Saraikela Kharsawan | Simdega | West Singhbhum";
+s_a[17]=" Bagalkot | Bangalore | Bangalore Rural | Belgaum | Bellary | Bidar | Bijapur | Chamarajanagar | Chikkaballapura | Chikmagalur | Chitradurga | Dakshina Kannada | Davanagere | Dharwad | Gadag | Gulbarga | Hassan | Haveri | Kodagu | Kolar | Koppal | Mandya | Mysore | Raichur | Ramanagara | Shimoga | Tumkur | Udupi | Uttara Kannada | Yadgir";
+s_a[18]=" Alappuzha | Ernakulam | Idukki | Kannur | Kasaragod | Kollam | Kottayam | Kozhikode | Malappuram | Palakkad | Pathanamthitta | Thiruvananthapuram | Thrissur | Wayanad";
+s_a[19]=" Lakshadweep | South Island ";
+s_a[20]=" Agar | Alirajpur | Anuppur | Ashok Nagar | Balaghat | Barwani | Betul | Bhind | Bhopal | Burhanpur | Chhatarpur | Chhindwara | Damoh | Datia | Dewas | Dhar | Dindori | Guna | Gwalior | Harda | Hoshangabad | Indore | Jabalpur | Jhabua | Katni | Khandwa�(East Nimar) | Khargone�(West Nimar) | Mandla | Mandsaur | Morena | Narsinghpur | Neemuch | Panna | Raisen | Rajgarh | Ratlam | Rewa | Sagar | Satna | Sehore | Seoni | Shahdol | Shajapur | Sheopur | Shivpuri | Sidhi | Singrauli | Tikamgarh | Ujjain | Umaria | Vidisha";
+s_a[21]=" Ahmadnagar | Akola | Amravati | Aurangabad | Bhandara | Bid | Buldana | Chandrapur | Dhule | Gadchiroli | Gondiya | Hingoli | Jalgaon | Jalna | Kolhapur | Latur | Mumbai City | Mumbai Suburban | Nagpur | Nanded | Nandurbar | Nashik | Osmanabad | Palghar | Parbhani	Parbhani | Pune | Raigarh | Ratnagiri | Sangli | Satara | Sindhudurg | Solapur	 | Thane | Wardha | Washim | Yavatmal";
+s_a[22]=" Bishnupur | Chandel | Churachandpur | Imphal East | Imphal West | Senapati | Tamenglong | Thoubal | Ukhrul | Jiribam | Kangpokpi | Kakching district | Tengnoupal | Kamjong | Noney | Pherzawl";
+s_a[23]=" East Garo Hills | West Garo Hills | North Garo Hills | South Garo Hills | South West Garo Hills | East Jaintia Hills | West Jaintia Hills | East Khasi Hills | South West Khasi Hills | West Khasi Hills | Ri-Bhoi ";
+s_a[24]=" Aizawl | Champhai | Kolasib | Lawngtlai | Lunglei | Mamit | Saiha | Serchhip ";
+s_a[25]=" Dimapur | Kiphire | Kohima | Longleng | Mokokchung | Mon | Peren | Phek | Tuensang | Wokha | Zunheboto ";
+s_a[26]=" Angul | Balangir | Balasore | Bargarh (Baragarh) | Boudh�(Bauda) | Bhadrak | Cuttack | Debagarh (Deogarh) | Dhenkanal | Gajapati | Ganjam | Jagatsinghpur | Jajpur | Jharsuguda | Kalahandi | Kandhamal | Kendrapara | Kendujhar (Keonjhar) | Khordha | Koraput | Malkangiri | Mayurbhanj | Nabarangpur | Nayagarh | Nuapada | Puri | Rayagada | Sambalpur | Subarnapur (Sonepur) | Sundergarh ";
+s_a[27]=" Karaikal | Mahe | Puducherry | Yanam ";
+s_a[28]=" Amritsar | Barnala | Bathinda | Fazilka | Faridkot | Fatehgarh Sahib | Firozpur | Gurdaspur | Hoshiarpur | Jalandhar | Kapurthala | Ludhiana | Mansa | Moga | Mohali | Muktsar | Pathankot | Patiala | Rupnagar | Sangrur | Shahid Bhagat Singh Nagar | Tarn Taran ";
+s_a[29]=" Ajmer | Alwar | Banswara | Baran | Barmer | Bharatpur | Bhilwara | Bikaner | Bundi | Chittaurgarh | Churu | Dausa | Dhaulpur | Dungarpur | Ganganagar | Hanumangarh | Jaipur | Jaisalmer	 | Jalor | Jhalawar | Jhunjhunun | Jodhpur | Karauli | Kota | Nagaur | Pali | Pratapgarh | Rajsamand | Sawai Madhopur | Sikar | Sirohi | Tonk | Udaipur ";
+s_a[30]=" East Sikkim | North Sikkim | South Sikkim | West Sikkim ";
+s_a[31]=" Ariyalur | Chennai | Coimbatore | Cuddalore | Dharmapuri | Dindigul | Erode | Kancheepuram | Kanniyakumari | Karur | Krishnagiri | Madurai | Nagapattinam | Namakkal | Perambalur | Pudukkottai | Ramanathapuram | Salem | Sivaganga | Thanjavur | The Nilgiris | Theni | Thiruvallur | Thiruvarur | Thoothukkudi | Tiruchirappalli | Tirunelveli	 | Tiruppur	 | Tiruvannamalai | Vellore | Viluppuram | Virudhunagar ";
+s_a[32]=" Adilabad | Komram Bheem district | Bhadradri | Jayashankar | Gadwal | Hyderabad | Jagtial | Jangaon | Kamareddy | Karimnagar | Khammam | Mahabubabad | Mahbubnagar | Mancherial | Medak | Medchal | Nalgonda | Nagarkurnool | Nirmal | Nizamabad | Ranga Reddy | Peddapalli | Rajanna | Sangareddy | Siddipet | Suryapet | Vikarabad | Wanaparthy | Warangal (urban) | Warangal (rural) | Yadadri";
+s_a[33]=" Dhalai | Gomati | Khowai | North Tripura | Sepahijala | South Tripura | Unakoti | West Tripura";
+s_a[34]=" Agra | Aligarh | Allahabad | Ambedkar Nagar | Amethi (Chhatrapati Shahuji Maharaj Nagar) | Auraiya | Azamgarh | Baghpat | Bahraich | Ballia | Balrampur | Banda | Barabanki | Bareilly | Basti | Bijnor | Budaun | Bulandshahar | Chandauli | Chitrakoot | Deoria | Etah | Etawah | Faizabad | Farrukhabad | Fatehpur | Firozabad | Gautam Buddha Nagar | Ghaziabad | Ghazipur | Gonda | Gorakhpur | Hamirpur | Hapur (Panchsheel Nagar district) | Hardoi | Hathras (Mahamaya Nagar) | Jalaun | Jaunpur | Jhansi | Jyotiba Phule Nagar | Kannauj | Kanpur Dehat (Ramabai Nagar) | Kanpur Nagar | Kasganj (Kanshiram Nagar) | Kaushambi | Kheri | Kushinagar | Lalitpur | Lucknow | Maharajganj | Mahoba | Mainpuri | Mathura | Mau | Meerut | Mirzapur | Moradabad | Muzaffarnagar | Pilibhit | Pratapgarh | Rae Bareli | Rampur | Saharanpur | Sambhal | Sant Kabir Nagar | Sant Ravidas Nagar | Shahjahanpur | Shamli | Shrawasti | Siddharth Nagar | Sitapur | Sonbhadra | Sultanpur | Unnao | Varanasi";
+s_a[35]=" Almora | Bageshwar | Chamoli | Champawat | Dehradun | Haridwar | Nainital | Pauri Garhwal | Pithoragarh | Rudraprayag	 | Tehri Garhwal | Udham Singh Nagar | Uttarkashi";
+s_a[36]="	Alipurdua | Bankura | Barddhaman | Birbhum | Dakshin Dinajpur | Darjiling | Haora | Hugli | Jalpaiguri | Koch Bihar | Kolkata | Maldah | Murshidabad | Nadia | North Twenty Four Parganas | Paschim Medinipur | Purba Medinipur | Puruliya | South Twenty Four Parganas | Uttar Dinajpur";
+
+
+function print_state(state_id){
+	var option_str = document.getElementById(state_id);
+	option_str.length=0;
+	option_str.options[0] = new Option('Select State','');
+	option_str.selectedIndex = 0;
+	for (var i=0; i<state_arr.length; i++) {
+		option_str.options[option_str.length] = new Option(state_arr[i],state_arr[i]);
+	}
+}
+
+const state_select = document.getElementById("Native_State");
+state_select.addEventListener('change', create_cities_dropdown);
+
+function create_cities_dropdown() {
+        let state_code = document.getElementById("Native_State").selectedIndex;
+         
+        var city_arr = s_a[state_code].split("|");
+
+        var option_str = document.getElementById("Native_District");
+	      option_str.length=0;	
+	      option_str.options[0] = new Option('Select City','');
+      	option_str.selectedIndex = 0;
+      	for (var i=0; i<city_arr.length; i++) {
+      		option_str.options[option_str.length] = new Option(city_arr[i],city_arr[i]);
+      	}
+    }
+    
+</script>    
+</html>
+<script>
+  $(document).ready(function(){
+  $("form").attr("autocomplete","off");
+  });
+</script>

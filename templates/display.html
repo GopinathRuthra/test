@@ -1,0 +1,1104 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>DataTable Inline Editing using Python Flask MySQLdb jquery ajax and X-Editable</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.1/bootstrap3-editable/js/bootstrap-editable.js"></script>
+<script type="text/javascript" language="javascript">
+$(document).ready(function(){
+    var dataTable = $('#sample_data').DataTable();
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.GID',
+        url:'/updateemployee',
+        title:'Global ID',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Emp_name',
+        url:'/updateemployee',
+        title:'Name',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+ 
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Band',
+        url:'/updateemployee',
+        title:'Band',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+ 
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.CCName',
+        url:'/updateemployee',
+        title:'Cost center Name',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.CCID',
+        url:'/updateemployee',
+        title:'Cost center ID',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.DOJ',
+        url:'/updateemployee',
+        title:'Date Of Joining',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.W_Email',
+        url:'/updateemployee',
+        title:'Work Email',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Manager',
+        url:'/updateemployee',
+        title:'Manager',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Band_Change_date',
+        url:'/updateemployee',
+        title:'Band change date',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Lead',
+        url:'/updateemployee',
+        title:'Lead',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.AGM_VP',
+        url:'/updateemployee',
+        title:'AGM / VP Name',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Job_Role',
+        url:'/updateemployee',
+        title:'Job Role',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.T_Name',
+        url:'/updateemployee',
+        title:'Trainers Name',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.SPOC',
+        url:'/updateemployee',
+        title:'SPOC Name',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Core_Process',
+        url:'/updateemployee',
+        title:'Core Process',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Sub_Process',
+        url:'/updateemployee',
+        title:'Sub Process',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Higher_Qualification',
+        url:'/updateemployee',
+        title:'Higher Qualification',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.GENDER',
+        url:'/updateemployee',
+        title:'Gender',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.DOB',
+        url:'/updateemployee',
+        title:'Date Of Birth',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Work_Location',
+        url:'/updateemployee',
+        title:'Work Location',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Work_Location',
+        url:'/updateemployee',
+        title:'Work Location',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.P_Team',
+        url:'/updateemployee',
+        title:'Previous Team',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.P_O_Team',
+        url:'/updateemployee',
+        title:'Others Previous Team/Business',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Vaccine_Action_Plan',
+        url:'/updateemployee',
+        title:'Vaccine Action Plan',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Vaccinated_Status',
+        url:'/updateemployee',
+        title:'Vaccinated Status',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Vaccination_Certificate_Uploaded',
+        url:'/updateemployee',
+        title:'Vaccination Certificate Uploaded',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Accomodation',
+        url:'/updateemployee',
+        title:'Accomodation',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Personal_Email',
+        url:'/updateemployee',
+        title:'Personal Email',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Insurance',
+        url:'/updateemployee',
+        title:'Insurance Type',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Work_Location',
+        url:'/updateemployee',
+        title:'Work Location',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.ECName',
+        url:'/updateemployee',
+        title:'Emergency Contact Name',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.ECNumber',
+        url:'/updateemployee',
+        title:'Emergency Contact Number',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Mob',
+        url:'/updateemployee',
+        title:'Personal Contact Number',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Marital',
+        url:'/updateemployee',
+        title:'Marital Status',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Transport',
+        url:'/updateemployee',
+        title:'Mode of Transport',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Distance',
+        url:'/updateemployee',
+        title:'Distance from Office',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Pickup',
+        url:'/updateemployee',
+        title:'Pickup Point',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Address',
+        url:'/updateemployee',
+        title:'Residential Address',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.City_Pin',
+        url:'/updateemployee',
+        title:'City - Postal Code',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Native_State',
+        url:'/updateemployee',
+        title:'Native - State',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Native_District',
+        url:'/updateemployee',
+        title:'Native - District',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Type_of_Asset',
+        url:'/updateemployee',
+        title:'Type of Asset',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.CPU_Laptop',
+        url:'/updateemployee',
+        title:'CPU/ Laptop (Serial No.)',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Docking_Station',
+        url:'/updateemployee',
+        title:'Docking Station (Serial No.)',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Monitor_1',
+        url:'/updateemployee',
+        title:'Monitor 1 (Serial No.)',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Monitor_2',
+        url:'/updateemployee',
+        title:'Monitor 2 (Serial No.)',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Desk_No',
+        url:'/updateemployee',
+        title:'Desk No.',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Dual_Moniter_SetUp',
+        url:'/updateemployee',
+        title:'Dual Moniter SetUp',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Internet_availability',
+        url:'/updateemployee',
+        title:'Internet availability',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Head_Phone_availability',
+        url:'/updateemployee',
+        title:'Head Phone availability',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Additional_Key_Board',
+        url:'/updateemployee',
+        title:'Additional Key Board',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Mouse',
+        url:'/updateemployee',
+        title:'Additional Mouse',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.UPS',
+        url:'/updateemployee',
+        title:'UPS for the backup',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Proper_Table_availability',
+        url:'/updateemployee',
+        title:'Proper Table availability',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Proper_Chair_availability',
+        url:'/updateemployee',
+        title:'Proper Chair availability',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+    $('#sample_data').editable({
+        container:'body',
+        selector:'td.Spike_Buster',
+        url:'/updateemployee',
+        title:'Spike Buster',
+        type:'POST',
+        validate:function(value){
+            if($.trim(value) == '')
+            {
+                return 'This field is required';
+            }
+        }
+    });
+
+}); 
+
+
+</script>
+</head>
+    <body>
+        <div class="container">
+            <h3 align="center">Employee and Asset Database Details</h3>
+            <br />
+            <div class="panel panel-default">
+                <div class="panel-heading">Employee and Asset Database</div>
+                <br></br><button onclick="exportData()">
+                    <span class="glyphicon glyphicon-download"></span>
+                    Export into Excel </button><br></br>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="sample_data" class="table table-bordered table-striped" style="white-space: nowrap;">
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Global ID</th>  
+                                    <th>Name </th>  
+                                    <th>Band </th>  
+                                    <th>Cost center Name</th>  
+                                    <th>Cost center ID</th>  
+                                    <th>Date Of Joining</th>  
+                                    <th>Work Email</th>  
+                                    <th>Manager </th>  
+                                    <th>Band change date</th>  
+                                    <th>Lead </th>  
+                                    <th>AGM / VP Name</th>  
+                                    <th>Job Role </th>  
+                                    <th>Trainer's Name </th>  
+                                    <th>SPOC Name</th>  
+                                    <th>Core Process</th>  
+                                    <th>Sub Process</th>  
+                                    <th>Higher Qualification</th>  
+                                    <th>Gender </th>  
+                                    <th>Date Of Birth</th>  
+                                    <th>Work Location</th>   
+                                    <th>Previous Team </th>  
+                                    <th>Others Previous Team/Business </th>  
+                                    <th>Vaccine Action Plan </th>  
+                                    <th>Vaccinated Status</th>  
+                                    <th>Vaccination Certificate Uploaded in Workday</th>  
+                                    <th>Accomodation </th>  
+                                    <th>Personal Email</th>  
+                                    <th>Insurance Type</th>  
+                                    <th>Emergency Contact Name</th>  
+                                    <th>Emergency Contact Number </th>  
+                                    <th>Personal Contact Number</th>  
+                                    <th>Marital Status</th>  
+                                    <th>Mode of Transport</th>  
+                                    <th>Distance from Office</th>  
+                                    <th>Pickup Point</th>  
+                                    <th>Residential Address</th>  
+                                    <th>City - Postal Code</th>  
+                                    <th>Native - State</th>  
+                                    <th>Native - District</th>  
+                                    <th>Type of Asset</th> 
+                                    <th>CPU/ Laptop (Serial No.)</th>  
+                                    <th>Docking Station (Serial No.) </th>  
+                                    <th>Monitor 1 (Serial No.)</th>  
+                                    <th>Monitor 2 (Serial No.)</th>  
+                                    <th>Desk No.</th>  
+                                    <th>Dual Moniter SetUp</th>  
+                                    <th>Internet availability</th>  
+                                    <th>Head Phone availability</th>  
+                                    <th>Additional Key Board</th>  
+                                    <th>Additional Mouse </th>  
+                                    <th>UPS for the backup</th>  
+                                    <th>Proper Table availability</th>  
+                                    <th>Proper Chair availability</th>  
+                                    <th>Spike Buster</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in employee %}
+                                <tr>
+                                    <td data-pk="{{row.id}}">{{row.id}}</td>
+                                    <td data-pk="{{row.id}}">{{row.GID}}</td>
+                                    <td data-name="Emp_Name" class="Emp_Name" data-type="text" data-pk="{{row.id}}">{{row.Emp_Name}}</td>
+                                    <td data-name="Band" class="Band" data-type="text" data-pk="{{row.id}}">{{row.Band}}</td>
+                                    <td data-name="CCName" class="CCName" data-type="text" data-pk="{{row.id}}">{{row.CCName}}</td>
+                                    <td data-name="CCID" class="CCID" data-type="text" data-pk="{{row.id}}">{{row.CCID}}</td>
+                                    <td data-name="DOJ" class="DOJ" data-type="date" data-pk="{{row.id}}">{{row.DOJ}}</td>
+                                    <td data-name="W_Email" class="W_Email" data-type="email" data-pk="{{row.id}}">{{row.W_Email}}</td>
+                                    <td data-name="Manager" class="Manager" data-type="text" data-pk="{{row.id}}">{{row.Manager}}</td>
+                                    <td data-name="Band_Change_date" class="Band_Change_date" data-type="date" data-pk="{{row.id}}">{{row.Band_Change_date}}</td>
+                                    <td data-name="Lead" class="Lead" data-type="text" data-pk="{{row.id}}">{{row.Lead}}</td>
+                                    <td data-name="AGM_VP" class="AGM_VP" data-type="text" data-pk="{{row.id}}">{{row.AGM_VP}}</td>
+                                    <td data-name="Job_Role" class="Job_Role" data-type="text" data-pk="{{row.id}}">{{row.Job_Role}}</td>
+                                    <td data-name="T_Name" class="T_Name" data-type="text" data-pk="{{row.id}}">{{row.T_Name}}</td>
+                                    <td data-name="SPOC" class="SPOC" data-type="text" data-pk="{{row.id}}">{{row.SPOC}}</td>
+                                    <td data-name="Core_Process" class="Core_Process" data-type="text" data-pk="{{row.id}}">{{row.Core_Processe}}</td>
+                                    <td data-name="Sub_Process" class="Sub_Process" data-type="text" data-pk="{{row.id}}">{{row.Sub_Process}}</td>
+                                    <td data-name="Higher_Qualification" class="Higher_Qualification" data-type="text" data-pk="{{row.id}}">{{row.Higher_Qualification}}</td>
+                                    <td data-name="GENDER" class="GENDER" data-type="text" data-pk="{{row.id}}">{{row.GENDER}}</td>
+                                    <td data-name="DOB" class="DOB" data-type="date" data-pk="{{row.id}}">{{row.DOB}}</td>
+                                    <td data-name="Work_Location" class="Work_Location" data-type="text" data-pk="{{row.id}}">{{row.Work_Location}}</td>
+                                    <td data-name="P_Team" class="P_Team" data-type="text" data-pk="{{row.id}}">{{row.P_Team}}</td>
+                                    <td data-name="P_O_Team" class="P_O_Team" data-type="text" data-pk="{{row.id}}">{{row.P_O_Team}}</td>
+                                    <td data-name="Vaccine_Action_Plan" class="Vaccine_Action_Plan" data-type="text" data-pk="{{row.id}}">{{row.Vaccine_Action_Plan}}</td>
+                                    <td data-name="Vaccinated_Status" class="Vaccinated_Status" data-type="text" data-pk="{{row.id}}">{{row.Vaccinated_Status}}</td>
+                                    <td data-name="Vaccination_Certificate_Uploaded" class="Vaccination_Certificate_Uploaded" data-type="text" data-pk="{{row.id}}">{{row.Vaccination_Certificate_Uploaded}}</td>
+                                    <td data-name="Accomodation" class="Accomodation" data-type="text" data-pk="{{row.id}}">{{row.Accomodation}}</td>
+                                    <td data-name="Personal_Email" class="Personal_Email" data-type="text" data-pk="{{row.id}}">{{row.Personal_Email}}</td>
+                                    <td data-name="Insurance" class="Insurance" data-type="text" data-pk="{{row.id}}">{{row.Insurance}}</td>
+                                    <td data-name="ECName" class="ECName" data-type="text" data-pk="{{row.id}}">{{row.ECName}}</td>
+                                    <td data-name="ECNumber" class="ECNumber" data-type="text" data-pk="{{row.id}}">{{row.ECNumber}}</td>
+                                    <td data-name="Mob" class="Mob" data-type="text" data-pk="{{row.id}}">{{row.Mob}}</td>
+                                    <td data-name="Marital" class="Marital" data-type="text" data-pk="{{row.id}}">{{row.Marital}}</td>
+                                    <td data-name="Transport" class="Transport" data-type="text" data-pk="{{row.id}}">{{row.Transport}}</td>
+                                    <td data-name="Pickup" class="Pickup" data-type="text" data-pk="{{row.id}}">{{row.Pickup}}</td>
+                                    <td data-name="Distance" class="Distance" data-type="text" data-pk="{{row.id}}">{{row.Distance}}</td>
+                                    <td data-name="Address" class="Address" data-type="text" data-pk="{{row.id}}">{{row.Address}}</td>
+                                    <td data-name="Native_State" class="Native_State" data-type="text" data-pk="{{row.id}}">{{row.Native_State}}</td>
+                                    <td data-name="Native_District" class="Native_District" data-type="text" data-pk="{{row.id}}">{{row.Native_District}}</td>
+                                    <td data-name="City_Pin" class="City_Pin" data-type="text" data-pk="{{row.id}}">{{row.City_Pin}}</td>
+                                    <td data-name="Type_of_Asset" class="Type_of_Asset" data-type="text" data-pk="{{row.id}}">{{row.Type_of_Asset}}</td>
+                                    <td data-name="CPU_Laptop" class="CPU_Laptop" data-type="text" data-pk="{{row.id}}">{{row.CPU_Laptop}}</td>
+                                    <td data-name="Docking_Station" class="Docking_Station" data-type="text" data-pk="{{row.id}}">{{row.Docking_Station}}</td>
+                                    <td data-name="Monitor_1" class="Monitor_1" data-type="text" data-pk="{{row.id}}">{{row.Monitor_1}}</td>
+                                    <td data-name="Monitor_2" class="Monitor_2" data-type="text" data-pk="{{row.id}}">{{row.Monitor_2}}</td>
+                                    <td data-name="Desk_No" class="Desk_No" data-type="text" data-pk="{{row.id}}">{{row.Desk_No}}</td>
+                                    <td data-name="Dual_Moniter_SetUp" class="Dual_Moniter_SetUp" data-type="text" data-pk="{{row.id}}">{{row.Dual_Moniter_SetUp}}</td>
+                                    <td data-name="Internet_availability" class="Internet_availability" data-type="text" data-pk="{{row.id}}">{{row.Internet_availability}}</td>
+                                    <td data-name="Head_Phone_availability" class="Head_Phone_availability" data-type="text" data-pk="{{row.id}}">{{row.Head_Phone_availability}}</td>
+                                    <td data-name="Additional_Key_Board" class="Additional_Key_Board" data-type="text" data-pk="{{row.id}}">{{row.Additional_Key_Board}}</td>
+                                    <td data-name="Mouse" class="Mouse" data-type="text" data-pk="{{row.id}}">{{row.Mouse}}</td>
+                                    <td data-name="UPS" class="UPS" data-type="text" data-pk="{{row.id}}">{{row.UPS}}</td>
+                                    <td data-name="Proper_Table_availability" class="Proper_Table_availability" data-type="text" data-pk="{{row.id}}">{{row.Proper_Table_availability}}</td>
+                                    <td data-name="Proper_Chair_availability" class="Proper_Chair_availability" data-type="text" data-pk="{{row.id}}">{{row.Proper_Chair_availability}}</td>
+                                    <td data-name="Spike_Buster" class="Spike_Buster" data-type="text" data-pk="{{row.id}}">{{row.Spike_Buster}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+    </body>
+
+    <script>
+        function exportData(){
+            var table = document.getElementById("tblStocks");
+         
+            var rows =[];
+         
+            for(var i=0,row; row = table.rows[i];i++){
+        
+                
+                column1 = row.cells[0].innerText;
+                column2 = row.cells[1].innerText;
+                column3 = row.cells[2].innerText;
+                column4 = row.cells[3].innerText;
+                column5 = row.cells[4].innerText;
+                column6 = row.cells[5].innerText;
+                column7 = row.cells[6].innerText;
+                column8 = row.cells[7].innerText;
+                column9 = row.cells[8].innerText;
+                column10 = row.cells[9].innerText;
+                column11 = row.cells[10].innerText;
+                column12 = row.cells[11].innerText;
+                column13 = row.cells[12].innerText;
+                column14 = row.cells[13].innerText;
+                column15 = row.cells[14].innerText;
+                column16 = row.cells[15].innerText;
+                column17 = row.cells[16].innerText;
+                column18 = row.cells[17].innerText;
+                column19 = row.cells[18].innerText;
+                column20 = row.cells[19].innerText;
+                column21 = row.cells[20].innerText;
+                column22 = row.cells[21].innerText;
+                column23 = row.cells[22].innerText;
+                column24 = row.cells[23].innerText;
+                column25 = row.cells[24].innerText;
+                column26 = row.cells[25].innerText;
+                column27 = row.cells[26].innerText;
+                column28 = row.cells[27].innerText;
+                column29 = row.cells[28].innerText;
+                column30 = row.cells[29].innerText;
+                column31 = row.cells[30].innerText;
+                column32 = row.cells[31].innerText;
+                column33 = row.cells[32].innerText;
+                column34 = row.cells[33].innerText;
+                column35 = row.cells[34].innerText;
+                column36 = row.cells[35].innerText;
+                column37 = row.cells[36].innerText;
+                column38 = row.cells[37].innerText;
+                column39 = row.cells[38].innerText;
+                column40 = row.cells[39].innerText;
+                column41 = row.cells[40].innerText;
+                column42 = row.cells[41].innerText;
+                column43 = row.cells[42].innerText;
+                column44 = row.cells[43].innerText;
+                column45 = row.cells[44].innerText;
+                column46 = row.cells[45].innerText;
+                column47 = row.cells[46].innerText;
+                column48 = row.cells[47].innerText;
+                column49 = row.cells[48].innerText;
+                column50 = row.cells[49].innerText;
+                column51 = row.cells[50].innerText;
+                column52 = row.cells[51].innerText;
+                column53 = row.cells[52].innerText;
+        
+        
+                rows.push(
+                    [
+              column1,
+             column2,
+             column3,
+             column4,
+             column5,
+             column6,
+             column7,
+             column8,
+             column9,
+             column10,
+             column11,
+             column12,
+             column13,
+             column14,
+             column15,
+             column16,
+             column17,
+             column18,	
+             column19,
+             column20,
+             column21,
+             column22,	
+             column23,
+             column24,
+             column25,
+             column26,
+             column27,
+             column28,
+             column29,
+             column30,
+             column31,
+             column32,
+             column33,
+             column34,
+             column35,
+             column36,
+             column37,
+             column38,
+             column39,
+             column40,
+             column41,
+             column42,
+             column43,
+             column44,
+             column45,
+             column46,
+             column47,
+             column48,
+             column49,
+             column50,
+             column51,
+             column52,
+             column53
+                    ]
+                );
+         
+                }
+                csvContent = "data:text/csv;charset=utf-8,";
+                rows.forEach(function(rowArray){
+                    row = rowArray.join(",");
+                    csvContent += row + "\r\n";
+                });
+         
+                var encodedUri = encodeURI(csvContent);
+                var link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "Employee&Asset Database.csv");
+                document.body.appendChild(link);
+                link.click();
+        }
+    </script>
+
+</html>

@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+.bg-img {
+ 
+  background-image: url("download.jpg");
+
+  min-height: 190px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+}
+
+.container {
+  position: absolute;
+  margin: 10px;
+  width: auto;
+}
+
+body {
+  background-image: url("../images/Front_image.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+}
+
+.signup-form {
+  font-family: "Century Gothic",Verdana,sans-serif;
+  width:1000px;
+  margin:5px auto;
+  background:linear-gradient(to right, #ffffff 0%, #fafafa 50%, #ffffff 99%);
+  border-radius: 2px;
+}
+.form-header  {
+  background-color: #EFF0F1;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.form-header h1 {
+  font-size: 30px;
+  text-align: center;
+  color:rgb(252, 248, 248);
+  padding:20px 0;
+  border-bottom:1px solid #cccccc;
+}
+
+.form-body {
+  padding:10px 40px;
+  color:rgb(132, 4, 252);
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+.form-body .label-title {
+  color:#010758fa;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.form-body .label-add{
+  color:#010758fa;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+
+.form-body .form-input {
+    font-size: 17px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 34px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #333333;
+    text-align: left;
+    border: 1px solid #d6d6d6;
+    border-radius: 1px;
+    background: white;
+    outline: none;
+}
+
+.form-body .form-add {
+  font-size: 17px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 107px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #333333;
+  text-align: left;
+  border: 1px solid #d6d6d6;
+  border-radius: 1px;
+  background: white;
+  outline: none;
+}
+
+
+
+.horizontal-group .left{
+  float:left;
+  width:49%;
+}
+
+.horizontal-group .center{
+  text-align: center;
+  padding-left: 5pt; 
+}
+
+
+.horizontal-group .right{
+  float:right;
+  width:49%;
+}
+
+input[type="file"] {
+  outline: none;
+  cursor:pointer;
+  font-size: 17px;
+}
+
+#range-label {
+  width:15%;
+  padding:5px;
+  background-color: #1BBA93;
+  color:white;
+  border-radius: 5px;
+  font-size: 17px;
+  position: relative;
+  top:-8px;
+}
+
+
+::-webkit-input-placeholder  {
+  color:#d9d9d9;
+}
+.signup-form .form-footer  {
+  background-color: #EFF0F1;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding:10px 40px;
+  text-align: right;
+  border-top: 1px solid #cccccc;
+  clear:both;
+}
+
+.form-footer span {
+  float:left;
+  margin-top: 5px;
+  color:#999;  
+  font-style: italic;
+  font-weight: thin;
+}
+
+.btn {
+   display:inline-block;
+   padding:10px 20px;
+   background-color: #f8802f;
+   font-size:17px;
+   border:none;
+   border-radius:5px;
+   color:#bcf5e7;
+   cursor:pointer;
+}
+
+.upi {
+  display:inline-block;
+  padding:10px 40px;
+  background-color: #f8af42;
+  font-size:15px;
+  border:none;
+  border-radius:5px;
+  color:#edf3f2;
+  cursor:pointer;
+}
+.btn:hover {
+  background-color: #169c7b;
+  color:white;
+}
+
+.upi:hover {
+  background-color: #11da64;
+  color:white;
+}
